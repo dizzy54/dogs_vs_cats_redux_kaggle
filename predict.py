@@ -85,3 +85,6 @@ def save_bottleneck_features(img_width, img_height, weights_path, data_dir, n_sa
 
 # save_bottleneck_features(width, height, weights_path, test_data_dir, n_test_samples, 'test')
 model = load_model(top_model_weights_path)
+test_data = np.load(open('large_files/bottleneck_features_test.npy', 'rb'))
+y_test = model.predict(test_data, batch_size=32)
+np.savetxt("data/predictions.csv", y_test, delimiter=",")
