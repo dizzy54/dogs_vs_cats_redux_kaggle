@@ -7,7 +7,9 @@ import os
 import h5py
 import numpy as np
 
-import gc; gc.collect()
+import gc
+
+gc.collect()
 
 
 def addCNNlayer(model, n_filter, n_conv, n_pool, input_height=None, input_width=None, color=True):
@@ -159,6 +161,8 @@ model.fit(
 )
 
 model.save(top_model_weights_path)
+
+gc.collect()
 
 """
 # fully connected layer
