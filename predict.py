@@ -121,9 +121,10 @@ with open('data/prediction_order.csv') as f:
 s_numbers = [int(name.split('/')[1].split('.')[0]) for name in file_names]
 
 with open('data/predictions.csv', 'w') as f:
+    f.write('id,label\n')
     for s_number, result in sorted(zip(s_numbers, y_test)):
         # p = 1 - result
-        f.write(str(s_number) + ',' + '%.2f' % result)
+        f.write(str(s_number) + ',' + '%.8f' % result)
         f.write('\n')
 
 

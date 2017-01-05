@@ -142,7 +142,12 @@ validation_labels = np.array([0] * int(nb_validation_samples / 2) + [1] * int(nb
 # full connected layer added to VGG16 convolution layers
 model = Sequential()
 model.add(Flatten(input_shape=train_data.shape[1:]))
+
 model.add(Dense(256, activation='relu'))
+
+model.add(Dropout(0.5))
+model.add(Dense(256, activation='relu'))
+
 model.add(Dropout(0.5))
 model.add(Dense(1, activation='sigmoid'))
 
